@@ -2,7 +2,7 @@
 
 ## Current phase and authority
 
-Read `PROJECT_PLAN.md` before work. The repository began empty; the current authorised phase is planning only. Do not initialise the application, install dependencies, or write application code until the user approves implementation. Follow later explicit user instructions when the phase changes. Build incrementally and report each increment's actual validation.
+Read `PROJECT_PLAN.md` before work. The repository began empty; the user has authorised the foundation implementation. Do not expand into the complete website, booking integrations, or unapproved business content during this increment. Follow later explicit user instructions when the phase changes. Build incrementally and report each increment's actual validation.
 
 The cloud task is already isolated. Use the existing checkout at `/workspace/dalatfamhostel`; do not create a Git worktree unless the user explicitly requests one. Inspect Git status and preserve existing user changes. Do not commit, push, publish, or deploy without authorisation.
 
@@ -39,3 +39,13 @@ For each increment, run relevant checks. Before launch, validate a production bu
 Distinguish environment failures, application defects, missing content, and external integration blockers. Report passed, failed, skipped, and unrun checks separately. A listening port or a successful dependency installation alone does not establish readiness; make representative functional requests. Do not claim production readiness, live deployment, published environment configuration, or fresh-task restoration without evidence.
 
 Explain important technical decisions briefly, document tested setup steps, and leave each increment reviewable. Deployment preparation can be reversible work; production publication requires explicit user authorisation. No sub-agent delegation is required by this project.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+## This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
