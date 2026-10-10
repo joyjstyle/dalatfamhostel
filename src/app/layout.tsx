@@ -1,21 +1,66 @@
-import type { Metadata } from 'next';
-import localFont from 'next/font/local';
-import { SiteHeader } from '@/components/layout/site-header';
-import { SiteFooter } from '@/components/layout/site-footer';
-import './globals.css';
-const heading = localFont({ src: '../../fonts/bricolage-grotesque-latin.woff2', variable: '--font-heading', display: 'swap', weight: '400 800' });
-const body = localFont({ src: [
-  { path: '../../fonts/be-vietnam-pro-latin-400.woff2', weight: '400' },
-  { path: '../../fonts/be-vietnam-pro-latin-600.woff2', weight: '600' },
-], variable: '--font-body', display: 'swap' });
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { BookingProvider } from "@/components/booking/booking-provider";
+import { bookingDestinations, site } from "@/content/site";
+import { validateBookingUrl } from "@/lib/booking";
+import "./globals.css";
+
+const heading = localFont({
+  src: "../../fonts/fraunces-latin.woff2",
+  variable: "--font-heading",
+  display: "swap",
+  weight: "100 900",
+});
+const body = localFont({
+  src: "../../fonts/dm-sans-latin.woff2",
+  variable: "--font-body",
+  display: "swap",
+  weight: "100 1000",
+});
 export const metadata: Metadata = {
-  title: 'Dalat Family Hostel — Da Lat, Vietnam',
-  description: 'A social backpacker hostel in Da Lat, Vietnam.',
+  title: {
+    default: "Dalat Family Hostel — Come as a Traveller. Leave as Family.",
+    template: "%s | Dalat Family Hostel",
+  },
+  description:
+    "Dalat Family Hostel is a social backpacker hostel in Da Lat, Vietnam. Come as a Traveller. Leave as Family.",
+  openGraph: {
+    title: site.name,
+    description: site.tagline,
+    type: "website",
+    locale: "en_US",
+  },
   robots: { index: false, follow: false },
 };
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${heading.variable} ${body.variable}`}>
-    <a href="#main-content" className="fixed left-4 top-4 z-50 -translate-y-32 rounded-sm bg-brand px-5 py-3 text-on-brand focus:translate-y-0">Skip to content</a>
-    <SiteHeader /><main id="main-content" tabIndex={-1}>{children}</main><SiteFooter />
-  </body></html>;
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en">
+      <body className={`${heading.variable} ${body.variable}`}>
+        <BookingProvider
+          hostelworldUrl={validateBookingUrl(
+            bookingDestinations.hostelworld,
+            "hostelworld",
+          )}
+          bookingUrl={validateBookingUrl(
+            bookingDestinations.booking,
+            "booking",
+          )}
+          messageUrl={bookingDestinations.message}
+        >
+          <a href="#main-content" className="skip-link">
+            Skip to content
+          </a>
+          <SiteHeader />
+          <main id="main-content" tabIndex={-1}>
+            {children}
+          </main>
+          <SiteFooter />
+        </BookingProvider>
+      </body>
+    </html>
+  );
 }

@@ -1,5 +1,7 @@
 # Dalat Family Hostel — Project Plan
 
+> Current implementation: the user-approved Family House brief supersedes the historic pine palette, fonts, homepage sequence, and foundation-only scope below. Use cream/blue/red, Fraunces/DM Sans, and the complete homepage with a provider handoff dialog. See `DESIGN_REVIEW.md` for the current increment. Other architecture, truthfulness, accessibility and incremental-development requirements remain applicable.
+
 Status: Phase 1 proposal for review. No application initialisation or dependency installation is authorised in this phase.
 
 ## 1. Repository and scope

@@ -2,7 +2,7 @@
 
 ## Current phase and authority
 
-Read `PROJECT_PLAN.md` before work. The repository began empty; the user has authorised the foundation implementation. Do not expand into the complete website, booking integrations, or unapproved business content during this increment. Follow later explicit user instructions when the phase changes. Build incrementally and report each increment's actual validation.
+Read `PROJECT_PLAN.md` before work. The repository began empty; the user has authorised the Family House homepage redesign and an external-provider booking dialog. Do not implement inventory, payment, additional pages, or unapproved business content during this increment. Follow later explicit user instructions when the phase changes. Build incrementally and report each increment's actual validation.
 
 The cloud task is already isolated. Use the existing checkout at `/workspace/dalatfamhostel`; do not create a Git worktree unless the user explicitly requests one. Inspect Git status and preserve existing user changes. Do not commit, push, publish, or deploy without authorisation.
 
@@ -10,7 +10,7 @@ During environment onboarding, keep tracked application source, tests, manifests
 
 ## Product truth and content
 
-Only these business facts are currently confirmed: Dalat Family Hostel is a social backpacker hostel in Da Lat, Vietnam. Never invent prices, room inventory, amenities, address, policies, contact details, reviews, availability, awards, or activities. Keep incomplete development content explicitly marked and exclude it from public launch. Use only assets with known rights and record their source/licence where needed.
+Confirmed facts: Dalat Family Hostel is a social backpacker hostel in Da Lat, Vietnam; the approved brand message is “Come as a Traveller. Leave as Family.”; reservations are handled through Hostelworld, Booking.com, direct messages and walk-ins. Owner-supplied property URLs are in src/content/site.ts; no verified messaging URL is available. Never invent prices, room inventory, amenities, address, policies, contact details, reviews, availability, awards, or activities. Keep incomplete development content explicitly marked and exclude it from public launch. Use only assets with known rights and record their source/licence where needed.
 
 Do not imply an enquiry, reservation, payment, or availability check succeeded without testing the corresponding integration. Do not introduce simulated successes into production flows. Use approved destinations and clear labels for external booking links.
 
@@ -24,7 +24,7 @@ Avoid unnecessary dependencies. Use named Lucide icon imports. Add Motion only w
 
 ## UX and visual quality
 
-Follow the reviewed design direction and semantic tokens in `PROJECT_PLAN.md`. Aim for distinctive, authentic photography and readable editorial layouts. Avoid generic card-heavy layouts, decorative motion that delays content, and misleading urgency.
+The user’s Family House brief supersedes the older pine direction: cream #F7F0E3, warm white #FFFDF8, family blue #244A68, soft blue #91B4C8, deep red #A73532, warm red #C65A4B, ink #292D32; Fraunces headings and DM Sans body. Read DESIGN_REVIEW.md for implementation status and content blockers. Aim for distinctive, authentic photography and readable editorial layouts. Avoid generic card-heavy layouts, decorative motion that delays content, and misleading urgency.
 
 Build mobile-first and test phone, tablet, and desktop layouts. Use semantic HTML, correct heading order, links for navigation, buttons for actions, labelled forms, visible focus, a skip link, and appropriate alternative text. Target WCAG 2.2 AA; validate contrast, keyboard access, reduced motion, zoom, and narrow reflow. Use text alongside status colour and sufficiently large touch targets.
 

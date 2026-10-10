@@ -1,9 +1,43 @@
-import Link from 'next/link';
-import { Container } from '@/components/ui/container';
-import { site } from '@/content/site';
+import Link from "next/link";
+import { Container } from "@/components/ui/container";
+import { HouseMark } from "@/components/home/house-mark";
+import { site } from "@/content/site";
 export function SiteFooter() {
-  return <footer className="border-t border-border-subtle py-10"><Container className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
-    <div><p className="font-display text-2xl font-bold">{site.name}</p><p className="mt-2 text-muted-text">{site.location}</p><p className="mt-4 max-w-sm text-sm text-muted-text">Development foundation. Contact and booking details are awaiting approval.</p></div>
-    <nav aria-label="Footer navigation"><ul className="flex flex-wrap gap-x-6 gap-y-2">{site.navigation.map(item => <li key={item.href}><Link className="inline-flex min-h-11 items-center underline underline-offset-4" href={item.href}>{item.label}</Link></li>)}</ul></nav>
-  </Container></footer>;
+  return (
+    <footer className="site-footer">
+      <Container>
+        <div className="footer-main">
+          <div>
+            <HouseMark className="footer-house" />
+            <p className="footer-brand">Dalat Family Hostel</p>
+            <p>Come as a Traveller. Leave as Family.</p>
+          </div>
+          <nav aria-label="Footer navigation">
+            <p className="eyebrow">Around the house</p>
+            <ul>
+              {site.navigation.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="footer-location">
+            <p className="eyebrow">A little hello from</p>
+            <p className="footer-city">
+              Da Lat,
+              <br />
+              Vietnam.
+            </p>
+            <p>Contact details awaiting verification.</p>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <span>A family house. A travellers’ journal.</span>
+          <span>Design preview · not accepting reservations</span>
+          <Link href="#main-content">Back to top ↑</Link>
+        </div>
+      </Container>
+    </footer>
+  );
 }

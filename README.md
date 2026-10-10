@@ -1,5 +1,7 @@
 # Dalat Family Hostel
 
+Current review increment: Family House homepage. See `DESIGN_REVIEW.md`; the original foundation notes below are historical where superseded.
+
 Foundation increment built with Next.js App Router, React, TypeScript, Tailwind CSS and Lucide. Editorial pages are Server Components; only the mobile disclosure navigation uses client state. This is a development preview, not a booking website. It intentionally uses visible content/photography placeholders and `noindex` metadata.
 
 ## Development
@@ -11,7 +13,7 @@ npm ci
 npm run dev
 ```
 
-The development server listens on port 3000. Use the existing isolated checkout in cloud tasks; do not create a worktree unless requested. `.npmrc` puts the npm cache under `/workspace` because the cloud machine's home directory is not writable. On a machine without `/workspace`, override with `npm ci --cache .npm-cache` and ignore that local cache.
+The development server listens on port 3000. Use the existing isolated checkout in cloud tasks; do not create a worktree unless requested. `.npmrc` uses the ignored project-relative `.npm-cache` directory, so installation works without relying on writable home directories or a cloud-specific absolute path.
 
 ```sh
 npm run lint
@@ -50,3 +52,7 @@ Review the mobile/desktop foundation; supply authentic licensed photography, ver
 Passed: frozen-lockfile `npm ci`, lint with zero warnings, TypeScript check, optimised production build, development HTTP/content/stylesheet smoke checks, and all six Playwright cases using system Chromium (desktop and phone contexts). npm production dependency audit reported zero vulnerabilities. A mobile screenshot was inspected. The managed browser download was blocked, but browser execution succeeded using `/usr/bin/chromium`.
 
 Still unrun: full manual accessibility audit, Safari/Firefox validation, real-device testing, performance audit, booking/contact integration and deployment. The initial TypeScript 7 lint failure was resolved by pinning the supported 6.0.3 release. Cloud install and startup instructions were saved as a configuration draft; this is not publication or a new-task restoration test.
+
+## Current Family House redesign
+
+The later homepage increment supersedes the foundation's pine colours and Bricolage/Be Vietnam typography with the approved cream/blue/red palette and Fraunces/DM Sans. See DESIGN_REVIEW.md for current scope, component behaviour and content/asset requirements. The homepage remains noindex, with clearly identified development placeholders. Owner-supplied Hostelworld and Booking.com property links are cleaned and guarded; live reachability is blocked by the workspace proxy. No message link is published without verification.
