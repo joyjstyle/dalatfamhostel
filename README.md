@@ -29,19 +29,22 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:e2e
 ```
 
 The cloud machine provides Chromium. On other machines, run `npx playwright install chromium` and omit the executable-path override. The managed browser download was denied by the cloud network proxy; no network policy change is required when using the installed system browser. Browser tests cover rendered page navigation, keyboard skip-link behaviour, narrow-screen overflow, and mobile menu keyboard/close behaviour on desktop and phone contexts. They are not a full accessibility audit.
+If port 3000 is already in use, set `PLAYWRIGHT_PORT` to a free port (for example, `PLAYWRIGHT_PORT=3001`) rather than stopping an unrelated server.
 
 ## Architecture and decisions
 
-- `src/app`: layout, metadata, global tokens/styles and the basic home page.
-- `src/components/layout`: server-rendered header/footer, client mobile disclosure.
+- `src/app`: homepage, static sitemap topic routes, layout, metadata and global styles.
+- `src/components/layout`: shared header/footer, desktop sitemap dropdowns and mobile disclosure.
+- `src/components/pages`: reusable server-rendered topic page layout, editorial guide hubs, and the Things to Do and Getting Around Da Lat pages.
 - `src/components/ui`: responsive container, native button and navigation-link variants.
-- `src/content/site.ts`: confirmed identity and section navigation.
+- `src/content/site.ts`: confirmed identity, booking destinations and social links.
+- `src/content/navigation.ts`, `src/content/pages.ts`, `src/content/experience-pages.ts`, `src/content/travel-guides.ts`, `src/content/guides.ts`, and `src/content/guide-copy.json`: sitemap, static page content, experience copy, and the searchable guide collection with its supplied article copy and SEO metadata. The editorial `/guides` hub and its static `/guides/[slug]` pages share that collection.
 - `fonts`: local font assets and their SIL Open Font License files. Be Vietnam Pro 5.3.0 is self-hosted from Fontsource with Latin, Latin Extended and Vietnamese subsets; Story Script headings use the Google Fonts asset bundled through `next/font/local`.
 - `tests/e2e`: representative functional checks with Playwright.
 
 Versions are pinned by package.json and package-lock.json. TypeScript 6.0.3 is used because current typescript-eslint rejects TypeScript 7; ESLint 9 is required by current React/accessibility plugin peer ranges, although npm marks that release line unsupported. Revisit the lint ecosystem when plugin support for ESLint 10 is available. Tailwind 4 uses its PostCSS plugin and semantic CSS variables rather than a legacy configuration file.
 
-No Motion dependency, booking UI, enquiry form, speculative room inventory, stock photography, analytics or empty routes are included. Header links target real homepage sections. Main colours follow DESIGN_SYSTEM.md; reusable controls use semantic variants and visible focus. Story Script is self-hosted with `next/font/local`, and Be Vietnam Pro is self-hosted through Fontsource CSS; neither font requires a Google Fonts connection at runtime.
+No Motion dependency, enquiry form, speculative room inventory, stock photography or analytics are included. Sitemap topic pages identify unverified property details as development blockers rather than filling them with invented information. Experience pages contain supplied draft copy and clearly flag schedules, providers, costs, inclusions and safety details that need confirmation. Main colours follow DESIGN_SYSTEM.md; reusable controls use semantic variants and visible focus. Story Script is self-hosted with `next/font/local`, and Be Vietnam Pro is self-hosted through Fontsource CSS; neither font requires a Google Fonts connection at runtime.
 
 ## Before the next increment
 
@@ -55,4 +58,4 @@ Still unrun: full manual accessibility audit, Safari/Firefox validation, real-de
 
 ## Current Family House redesign
 
-The later homepage increment supersedes the foundation's pine colours and Bricolage/Be Vietnam typography with the approved cream/blue/red palette, Story Script headings, and Be Vietnam Pro body copy. See DESIGN_REVIEW.md for current scope, component behaviour and content/asset requirements. The homepage remains noindex, with clearly identified development placeholders. Owner-supplied Hostelworld, Booking.com and Agoda property links are cleaned and guarded; live reachability is not fully verified. Owner-supplied Instagram, Facebook and TikTok profiles are linked in the footer. No separate message link is published without verification.
+The later homepage increment supersedes the foundation's pine colours and Bricolage/Be Vietnam typography with the approved cream/blue/red palette, Story Script headings, and Be Vietnam Pro body copy. See DESIGN_REVIEW.md for current scope, component behaviour and content/asset requirements. The homepage remains noindex, with clearly identified development placeholders. Owner-supplied Hostelworld, Booking.com and Agoda property links are cleaned and guarded; live reachability is not fully verified. Owner-supplied Instagram, Facebook and TikTok profiles, address, telephone and email are linked on relevant pages and in the footer. No separate message link is published without verification.

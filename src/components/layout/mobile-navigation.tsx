@@ -2,7 +2,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { site } from "@/content/site";
+import { siteNavigation } from "@/content/navigation";
 export function MobileNavigation() {
   const [open, setOpen] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
@@ -37,19 +37,50 @@ export function MobileNavigation() {
         hidden={!open}
         className="absolute inset-x-0 top-full border-b border-border-subtle bg-background px-5 py-4 shadow-sm"
       >
-        <ul className="flex flex-col gap-1">
-          {site.navigation.map((item) => (
+        <ul className="mobile-navigation-list">
+          {siteNavigation.map((item) => (
             <li key={item.href}>
-              <Link
-                href={item.href}
-                onClick={() => {
-                  setOpen(false);
-                  trigger.current?.focus();
-                }}
-                className="block rounded-sm px-3 py-3 font-medium hover:bg-surface"
-              >
-                {item.label}
-              </Link>
+              {item.children ? (
+                <details>
+                  <summary>{item.label}</summary>
+                  <ul>
+                    <li>
+                      <Link
+                        href={item.href}
+                        onClick={() => {
+                          setOpen(false);
+                          trigger.current?.focus();
+                        }}
+                      >
+                        Overview
+                      </Link>
+                    </li>
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link
+                          href={child.href}
+                          onClick={() => {
+                            setOpen(false);
+                            trigger.current?.focus();
+                          }}
+                        >
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ) : (
+                <Link
+                  href={item.href}
+                  onClick={() => {
+                    setOpen(false);
+                    trigger.current?.focus();
+                  }}
+                >
+                  {item.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>

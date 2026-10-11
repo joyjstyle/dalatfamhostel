@@ -37,7 +37,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" translate="yes">
       <body className={heading.variable}>
         <BookingProvider
           hostelworldUrl={validateBookingUrl(

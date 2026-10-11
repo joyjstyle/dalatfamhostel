@@ -22,6 +22,7 @@ import {
 } from "./photo-assets";
 import { SectionHeading } from "./section-heading";
 import { HouseMark } from "./house-mark";
+import { site } from "@/content/site";
 
 export function Hero() {
   return (
@@ -446,9 +447,19 @@ export function Location() {
             Dalat Family Hostel <br />
             Da Lat, Vietnam
           </p>
-          <p className="body-copy">
-            3/4 Ngo Quyen Street, Ward 1, Dalat City
-          </p>
+          <address className="location-contact">
+            <a
+              href={site.contact.addressUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {site.contact.address}
+            </a>
+            <a href={site.contact.telephoneUrl}>
+              {site.contact.telephone}
+            </a>
+            <a href={site.contact.emailUrl}>{site.contact.email}</a>
+          </address>
           <BookingButton variant="secondary">
             Plan your stay <ArrowUpRight aria-hidden="true" size={18} />
           </BookingButton>
