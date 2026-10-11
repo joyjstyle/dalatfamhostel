@@ -1,7 +1,8 @@
-export type BookingProvider = "hostelworld" | "booking";
+export type BookingProvider = "hostelworld" | "booking" | "agoda";
 const hosts: Record<BookingProvider, readonly string[]> = {
   hostelworld: ["hostelworld.com", "www.hostelworld.com"],
   booking: ["booking.com", "www.booking.com"],
+  agoda: ["agoda.com", "www.agoda.com"],
 };
 /** Structural guard only. Owner approval and live property checks are also required. */
 export function validateBookingUrl(

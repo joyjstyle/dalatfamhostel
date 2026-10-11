@@ -1,77 +1,64 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowDown,
   ArrowUpRight,
   MapPin,
-  Heart,
   MoveUpRight,
 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { BookingButton } from "@/components/booking/booking-provider";
 import { PhotoPlaceholder } from "./photo-placeholder";
+import { PhotoGallery } from "./photo-gallery";
+import { RoomLookbook } from "./room-lookbook";
+import { SharedSpaceGallery } from "./shared-space-gallery";
+import {
+  commonAreaPhotos,
+  dinnerPhotos,
+  experiencePhotos,
+  roomPhotos,
+  storyPhoto,
+  travelPhoto,
+} from "./photo-assets";
 import { SectionHeading } from "./section-heading";
 import { HouseMark } from "./house-mark";
 
 export function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-heading">
-      <Container>
-        <div className="hero-meta">
-          <span>
-            <MapPin size={14} aria-hidden="true" /> DA LAT, VIETNAM
-          </span>
-          <span>A HOUSE FOR TRAVELLERS</span>
-        </div>
-        <div className="hero-composition">
-          <div className="hero-copy">
-            <p className="eyebrow">A little further from ordinary.</p>
-            <h1 id="hero-heading">
-              Come as a <br />
-              Traveller. <br />
-              <span>Leave as Family.</span>
-            </h1>
-            <p className="hero-description">
-              A social backpacker hostel in Da Lat, Vietnam.{" "}
-              <br className="desktop-break" /> Your next chapter starts with a
-              hello.
-            </p>
-            <div className="hero-actions">
-              <BookingButton>
-                Plan your stay <ArrowUpRight size={18} aria-hidden="true" />
-              </BookingButton>
-              <Link href="#hostel-life" className="text-link">
-                Meet the family <ArrowDown size={16} aria-hidden="true" />
-              </Link>
-            </div>
+      <Image
+        src="/scenery.JPG"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="hero-background"
+      />
+      <Container className="hero-content">
+        <div className="hero-copy">
+          <p className="hero-location">
+            <MapPin size={16} aria-hidden="true" />
+            DA LAT, VIETNAM
+          </p>
+          <p className="eyebrow">A little further from ordinary.</p>
+          <h1 id="hero-heading">
+            Come as a Traveller.
+            <br />{" "}
+            <span>Leave as Family.</span>
+          </h1>
+          <p className="hero-description">
+            A social backpacker hostel in Da Lat, Vietnam.
+            <br />
+            Your next chapter starts with a hello.
+          </p>
+          <div className="hero-actions">
+            <BookingButton>
+              Plan your stay <ArrowUpRight size={18} aria-hidden="true" />
+            </BookingButton>
+            <Link href="#hostel-life" className="text-link">
+              Meet the family <ArrowDown size={16} aria-hidden="true" />
+            </Link>
           </div>
-          <div className="hero-images">
-            <div className="hero-note">
-              a little hello <br />
-              from Da Lat <Heart size={20} aria-hidden="true" />
-            </div>
-            <PhotoPlaceholder
-              className="hero-photo"
-              subject="The people who make a place."
-              number="01"
-            />
-            <div className="hero-postcard">
-              <HouseMark />
-              <p>
-                New place. <br />
-                Familiar feeling.
-              </p>
-              <span>DALAT FAMILY HOSTEL</span>
-            </div>
-          </div>
-        </div>
-        <div className="hero-bottom">
-          <span>For the journey. For the people.</span>
-          <Link href="#hostel-life" aria-label="Discover the house">
-            <ArrowDown size={20} aria-hidden="true" />
-          </Link>
-          <span className="preview-tag">
-            Design preview · copy & photography pending
-          </span>
         </div>
       </Container>
     </section>
@@ -117,9 +104,6 @@ export function Welcome() {
           <span className="hand-note">
             It starts with <br />a simple hello.
           </span>
-          <p className="development-note">
-            Editorial preview copy. Full approved introduction still needed.
-          </p>
         </div>
       </Container>
     </section>
@@ -141,16 +125,19 @@ export function Accommodation() {
           </SectionHeading>
           <p className="body-copy">
             Find your place in the house. <br />
-            Room details will be shared once verified.
+            Room labels follow the supplied image names; details will be
+            shared once verified.
           </p>
         </div>
         <div className="room-composition">
-          <PhotoPlaceholder
-            subject="An honest look at your stay."
-            number="02"
-            tone="cream"
-            className="room-photo"
-          />
+          <div className="room-image-references">
+            <div className="room-lookbook-heading">
+              <p className="eyebrow">The room lookbook</p>
+              <span>13 photographs · scroll to explore</span>
+            </div>
+            <RoomLookbook photos={roomPhotos} />
+            <SharedSpaceGallery photos={commonAreaPhotos} />
+          </div>
           <div className="room-details">
             <span className="eyebrow">Accommodation preview</span>
             <h3>
@@ -158,8 +145,9 @@ export function Accommodation() {
               your next chapter.
             </h3>
             <p>
-              Verified room names, photographs, bed arrangements and inclusions
-              are needed before we can introduce the accommodation.
+              Verified room names, property-matched photographs, bed
+              arrangements and inclusions are needed before we can introduce
+              the accommodation.
             </p>
             <div className="room-facts">
               <span>Room inventory</span>
@@ -171,9 +159,6 @@ export function Accommodation() {
               Explore booking options{" "}
               <ArrowUpRight size={17} aria-hidden="true" />
             </BookingButton>
-            <p className="development-note">
-              No room types or prices are represented by this preview.
-            </p>
           </div>
         </div>
       </Container>
@@ -196,21 +181,12 @@ export function FamilyDinner() {
           </SectionHeading>
           <p className="lead">Family Dinner</p>
           <p>The place in our journal for food, faces and shared moments.</p>
-          <p className="development-note">
-            Dinner description, schedule, pricing and participation details need
-            owner approval. This preview does not advertise a scheduled meal or
-            included service.
-          </p>
           <Link href="#our-story" className="text-link">
             Get to know the family <ArrowUpRight size={18} aria-hidden="true" />
           </Link>
         </div>
         <div className="dinner-image">
-          <PhotoPlaceholder
-            subject="Around the family table."
-            number="03"
-            tone="red"
-          />
+          <PhotoGallery photos={dinnerPhotos} className="dinner-gallery" />
           <span className="dinner-caption">
             The best stories have people in them.
           </span>
@@ -241,11 +217,17 @@ export function Experiences() {
           </p>
         </div>
         <div className="experience-composition">
-          <PhotoPlaceholder
-            subject="A day beyond the house."
-            number="04"
-            className="experience-photo"
-          />
+          <div className="experience-images">
+            <p className="eyebrow">Activity image references</p>
+            <PhotoGallery
+              photos={experiencePhotos}
+              className="experience-gallery"
+            />
+            <p className="development-note">
+              Images are references only; whether these experiences are
+              connected to the hostel or currently available is unverified.
+            </p>
+          </div>
           <div className="experience-list">
             {[
               [
@@ -294,9 +276,12 @@ export function FamilyStory() {
       <Container className="story-grid">
         <div className="story-images">
           <PhotoPlaceholder
-            subject="The faces behind the welcome."
+            subject="A shared meal."
             number="05"
             tone="cream"
+            imageSrc={storyPhoto.src}
+            imageAlt={storyPhoto.alt}
+            imageLabel={storyPhoto.caption}
           />
           <span className="story-stamp">
             People make <br />
@@ -317,8 +302,9 @@ export function FamilyStory() {
             their story and what family means to them.
           </p>
           <p className="development-note">
-            Owner-approved history and team photographs are needed. No founding
-            story or dates have been invented.
+            The exterior image is not a team portrait. Owner-approved history
+            and team photographs are still needed; no founding story or dates
+            have been invented.
           </p>
           <HouseMark className="story-house" />
         </div>
@@ -336,30 +322,52 @@ export function Reviews() {
     >
       <Container>
         <div className="review-composition">
-          <span className="review-quote" aria-hidden="true">
-            “
-          </span>
-          <div>
+          <div className="review-overview">
             <SectionHeading id="reviews-heading" eyebrow="06 / From our guests">
               Real people. <br />
               Their own words.
             </SectionHeading>
-            <p className="lead">The next page belongs to our guests.</p>
-            <p className="body-copy">
-              Authentic, attributed reviews will appear here after their source
-              and permission to reuse them have been confirmed.
-            </p>
-            <p className="development-note">
-              Review placeholder · no testimonial, star rating or review count
-              is displayed.
-            </p>
+            <div
+              className="review-score"
+              aria-label="Hostelworld guest rating 9.5 out of 10 from 3,711 reviews, checked 11 October 2026"
+            >
+              <strong>9.5</strong>
+              <span>
+                <b>Hostelworld guest score</b>
+                <small>3,711 reviews · checked 11 October 2026</small>
+              </span>
+            </div>
+            <a
+              className="text-link"
+              href="https://www.hostelworld.com/hostels/p/302311/dalat-family-hostel/#reviews"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read all reviews on Hostelworld
+              <ArrowUpRight size={18} aria-hidden="true" />
+            </a>
           </div>
-          <div className="review-note">
-            <Heart size={28} strokeWidth={1.3} aria-hidden="true" />
-            <span>
-              Stories worth <br />
-              keeping.
-            </span>
+          <div className="review-list" aria-label="Selected Hostelworld reviews">
+            <figure className="review-item">
+              <blockquote>
+                “Great energy kind staff good stay”
+              </blockquote>
+              <figcaption>Grace <span>· Gibraltar</span></figcaption>
+            </figure>
+            <figure className="review-item">
+              <blockquote>
+                “It has a lovely atmosphere and a balcony area to make friends
+                and have evening drinks.”
+              </blockquote>
+              <figcaption>Harry <span>· England</span></figcaption>
+            </figure>
+            <figure className="review-item">
+              <blockquote>
+                “Honestly one of the best hostel experiences I’ve had in Da
+                Lat”
+              </blockquote>
+              <figcaption>Joy <span>· Singapore</span></figcaption>
+            </figure>
           </div>
         </div>
       </Container>
@@ -386,9 +394,12 @@ export function TravelGuides() {
         </div>
         <div className="guide-layout">
           <PhotoPlaceholder
-            subject="Postcards from Da Lat."
+            subject="A view from Da Lat."
             number="06"
             tone="red"
+            imageSrc={travelPhoto.src}
+            imageAlt={travelPhoto.alt}
+            imageLabel={travelPhoto.caption}
           />
           <div className="guide-index">
             <span className="eyebrow">
@@ -429,33 +440,28 @@ export function Location() {
             id="location-heading"
             eyebrow="08 / Find your way here"
           >
-            Next stop: <br />
-            <em>Da Lat.</em>
+            Next stop: <em>Da Lat.</em>
           </SectionHeading>
           <p className="lead">
             Dalat Family Hostel <br />
             Da Lat, Vietnam
           </p>
           <p className="body-copy">
-            The exact address, arrival directions and check-in information will
-            be added once confirmed.
-          </p>
-          <p className="development-note">
-            No map pin or route is shown without a verified location.
+            3/4 Ngo Quyen Street, Ward 1, Dalat City
           </p>
           <BookingButton variant="secondary">
             Plan your stay <ArrowUpRight aria-hidden="true" size={18} />
           </BookingButton>
         </div>
-        <div className="location-map" role="note">
-          <div className="map-lines" aria-hidden="true" />
-          <HouseMark />
-          <p>See you in Da Lat.</p>
-          <span>
-            Illustrative location placeholder <br />
-            Not a map of the hostel
-          </span>
-        </div>
+        <figure className="location-map">
+          <Image
+            src="/dalat-family-hostel-map.png"
+            alt="Illustrated neighborhood map marking Dalat Family Hostel and nearby Da Lat landmarks."
+            width={1643}
+            height={957}
+            sizes="(min-width: 768px) 50vw, 100vw"
+          />
+        </figure>
       </Container>
     </section>
   );

@@ -24,7 +24,7 @@ Avoid unnecessary dependencies. Use named Lucide icon imports. Add Motion only w
 
 ## UX and visual quality
 
-The user’s Family House brief supersedes the older pine direction: cream #F7F0E3, warm white #FFFDF8, family blue #244A68, soft blue #91B4C8, deep red #A73532, warm red #C65A4B, ink #292D32; Fraunces headings and DM Sans body. Read DESIGN_REVIEW.md for implementation status and content blockers. Aim for distinctive, authentic photography and readable editorial layouts. Avoid generic card-heavy layouts, decorative motion that delays content, and misleading urgency.
+The user’s Family House brief supersedes the older pine direction: cream #F7F0E3, warm white #FFFDF8, family blue #244A68, soft blue #91B4C8, deep red #A73532, warm red #C65A4B, ink #292D32; Story Script headings and Be Vietnam Pro body. Read DESIGN_REVIEW.md for implementation status and content blockers. Aim for distinctive, authentic photography and readable editorial layouts. Avoid generic card-heavy layouts, decorative motion that delays content, and misleading urgency.
 
 Build mobile-first and test phone, tablet, and desktop layouts. Use semantic HTML, correct heading order, links for navigation, buttons for actions, labelled forms, visible focus, a skip link, and appropriate alternative text. Target WCAG 2.2 AA; validate contrast, keyboard access, reduced motion, zoom, and narrow reflow. Use text alongside status colour and sufficiently large touch targets.
 

@@ -2,7 +2,7 @@
 
 Current review increment: Family House homepage. See `DESIGN_REVIEW.md`; the original foundation notes below are historical where superseded.
 
-Foundation increment built with Next.js App Router, React, TypeScript, Tailwind CSS and Lucide. Editorial pages are Server Components; only the mobile disclosure navigation uses client state. This is a development preview, not a booking website. It intentionally uses visible content/photography placeholders and `noindex` metadata.
+Foundation increment built with Next.js App Router, React, TypeScript, Tailwind CSS and Lucide. Editorial pages are Server Components; only the mobile disclosure navigation uses client state. This is a development preview, not a booking website. It intentionally uses visible content and image-verification notes, and `noindex` metadata.
 
 ## Development
 
@@ -36,16 +36,16 @@ The cloud machine provides Chromium. On other machines, run `npx playwright inst
 - `src/components/layout`: server-rendered header/footer, client mobile disclosure.
 - `src/components/ui`: responsive container, native button and navigation-link variants.
 - `src/content/site.ts`: confirmed identity and section navigation.
-- `fonts`: local WOFF2 assets and their SIL Open Font License files. Sources: Fontsource Bricolage Grotesque and Be Vietnam Pro 5.3.0. This first English slice includes Latin subsets only; add Vietnamese coverage before publishing Vietnamese copy.
+- `fonts`: local font assets and their SIL Open Font License files. Be Vietnam Pro 5.3.0 is self-hosted from Fontsource with Latin, Latin Extended and Vietnamese subsets; Story Script headings use the Google Fonts asset bundled through `next/font/local`.
 - `tests/e2e`: representative functional checks with Playwright.
 
 Versions are pinned by package.json and package-lock.json. TypeScript 6.0.3 is used because current typescript-eslint rejects TypeScript 7; ESLint 9 is required by current React/accessibility plugin peer ranges, although npm marks that release line unsupported. Revisit the lint ecosystem when plugin support for ESLint 10 is available. Tailwind 4 uses its PostCSS plugin and semantic CSS variables rather than a legacy configuration file.
 
-No Motion dependency, booking UI, enquiry form, speculative room inventory, stock photography, analytics or empty routes are included. Header links target real homepage sections. Main colours follow DESIGN_SYSTEM.md; reusable controls use semantic variants and visible focus. Fonts use next/font/local and do not require a Google Fonts connection at build time.
+No Motion dependency, booking UI, enquiry form, speculative room inventory, stock photography, analytics or empty routes are included. Header links target real homepage sections. Main colours follow DESIGN_SYSTEM.md; reusable controls use semantic variants and visible focus. Story Script is self-hosted with `next/font/local`, and Be Vietnam Pro is self-hosted through Fontsource CSS; neither font requires a Google Fonts connection at runtime.
 
 ## Before the next increment
 
-Review the mobile/desktop foundation; supply authentic licensed photography, verified rooms and policies, and a booking/contact destination. Expand one approved homepage visual slice next. Before launch, replace placeholders, validate full accessibility and performance, complete legal/contact information, test the actual booking journey, and remove noindex only as part of an approved launch. Nothing has been deployed or pushed.
+Before launch, verify the supplied image assets’ licensing and property match; confirm rooms and policies; and provide a verified booking/contact destination. Validate full accessibility and performance, complete legal/contact information, test the actual booking journey, and remove noindex only as part of an approved launch. Nothing has been deployed or pushed.
 
 ## Foundation validation (10 October 2026)
 
@@ -55,4 +55,4 @@ Still unrun: full manual accessibility audit, Safari/Firefox validation, real-de
 
 ## Current Family House redesign
 
-The later homepage increment supersedes the foundation's pine colours and Bricolage/Be Vietnam typography with the approved cream/blue/red palette and Fraunces/DM Sans. See DESIGN_REVIEW.md for current scope, component behaviour and content/asset requirements. The homepage remains noindex, with clearly identified development placeholders. Owner-supplied Hostelworld and Booking.com property links are cleaned and guarded; live reachability is blocked by the workspace proxy. No message link is published without verification.
+The later homepage increment supersedes the foundation's pine colours and Bricolage/Be Vietnam typography with the approved cream/blue/red palette, Story Script headings, and Be Vietnam Pro body copy. See DESIGN_REVIEW.md for current scope, component behaviour and content/asset requirements. The homepage remains noindex, with clearly identified development placeholders. Owner-supplied Hostelworld, Booking.com and Agoda property links are cleaned and guarded; live reachability is not fully verified. Owner-supplied Instagram, Facebook and TikTok profiles are linked in the footer. No separate message link is published without verification.

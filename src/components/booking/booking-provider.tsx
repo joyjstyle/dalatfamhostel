@@ -14,11 +14,13 @@ export function BookingProvider({
   children,
   hostelworldUrl,
   bookingUrl,
+  agodaUrl,
   messageUrl,
 }: {
   children: ReactNode;
   hostelworldUrl: string | null;
   bookingUrl: string | null;
+  agodaUrl: string | null;
   messageUrl: string | null;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -38,6 +40,7 @@ export function BookingProvider({
   const destinations = [
     { label: "Book on Hostelworld", url: hostelworldUrl },
     { label: "Book on Booking.com", url: bookingUrl },
+    { label: "Book on Agoda", url: agodaUrl },
   ];
 
   return (
@@ -130,7 +133,7 @@ export function BookingProvider({
               </a>
             )}
           </div>
-          {(!hostelworldUrl || !bookingUrl) && (
+          {(!hostelworldUrl || !bookingUrl || !agodaUrl) && (
             <p id="booking-unverified" className="development-note">
               Design preview: property links have not been supplied. These
               options cannot make a booking yet.

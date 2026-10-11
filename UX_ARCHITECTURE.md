@@ -1,6 +1,6 @@
 # Dalat Family Hostel — UX Architecture
 
-> Current implementation: the user-approved Family House brief supersedes the historic pine palette, fonts, homepage sequence, and foundation-only scope below. Use cream/blue/red, Fraunces/DM Sans, and the complete homepage with a provider handoff dialog. See `DESIGN_REVIEW.md` for the current increment. Other architecture, truthfulness, accessibility and incremental-development requirements remain applicable.
+> Current implementation: the user-approved Family House brief supersedes the historic pine palette, fonts, homepage sequence, and foundation-only scope below. Use cream/blue/red, Story Script headings, Be Vietnam Pro body copy, and the complete homepage with a provider handoff dialog. See `DESIGN_REVIEW.md` for the current increment. Other architecture, truthfulness, accessibility and incremental-development requirements remain applicable.
 
 Status: proposed experience foundation, 10 October 2026. Follows the approved project architecture in `PROJECT_PLAN.md` and the visual specification in `DESIGN_SYSTEM.md`. This phase documents decisions only; no booking flow, tours, forms, or UI have been implemented or tested.
 

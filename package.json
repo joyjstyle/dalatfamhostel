@@ -22,7 +22,6 @@
   "devDependencies": {
     "@fontsource-variable/bricolage-grotesque": "5.3.0",
     "@fontsource-variable/dm-sans": "5.3.0",
-    "@fontsource-variable/fraunces": "5.3.0",
     "@fontsource/be-vietnam-pro": "5.3.0",
     "@playwright/test": "1.64.0",
     "@tailwindcss/postcss": "4.3.3",
@@ -33,5 +32,8 @@
     "eslint-config-next": "16.4.0",
     "tailwindcss": "4.3.3",
     "typescript": "6.0.3"
+  },
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true
   }
 }

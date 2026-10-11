@@ -1,12 +1,12 @@
 # Family House homepage — review increment
 
-The latest user brief supersedes the historical pine direction. The homepage now uses cream, warm white, family blue, soft blue, deep red, warm red and ink; licensed self-hosted Fraunces and DM Sans. The implementation remains inside the existing App Router architecture. No commits, pushes or deployments are included in this increment.
+The latest user brief supersedes the historical pine direction. The homepage now uses cream, warm white, family blue, soft blue, deep red, warm red and ink; the licensed Google Story Script font is self-hosted for titles and headings, with Be Vietnam Pro for body copy. The implementation remains inside the existing App Router architecture. No commits, pushes or deployments are included in this increment.
 
 ## Review scope
 
-Responsive navigation; the approved “Come as a Traveller. Leave as Family.” hero; welcome; accommodation preview; Family Dinner; experiences; story; guest review placeholder; travel journal outline; location/directions placeholder; final booking action; footer.
+Responsive navigation; a viewport-height hero with centered copy over the supplied Da Lat skyline photo; welcome; accommodation preview; Family Dinner; experiences; story; guest review placeholder; travel journal outline; location/directions placeholder; final booking action; footer.
 
-The layout uses asymmetric editorial sections, a photo/postcard composition, a blue dinner feature, stacked mobile accommodation, a restrained line-drawn house detail and reusable heading/media patterns. The line drawing is an original decorative mark, not the official logo or a representation of the actual building. The earlier generated logo edit was not used because it did not preserve the original artwork.
+The layout uses asymmetric editorial sections, a horizontal snap-scrolling room lookbook with large editorial images, a single-row shared-space image strip with a subtle blue overlay that fades on hover or keyboard focus, a blue dinner feature, stacked mobile accommodation, a restrained line-drawn house detail and reusable heading/media patterns. The room lookbook shows one prominent room photo and a preview of the next, with all 13 images available through touch, trackpad, scrollbar and keyboard scrolling. Clicking a room opens an accessible enlarged image dialog; Escape, the close control or the backdrop dismisses it and returns focus to the selected image. The header and hero together fill one viewport, with the hero copy centered vertically in the hero and tighter spacing between the location label and introductory phrase. Section 08 displays the supplied illustrated map image for Dalat Family Hostel; written address and arrival details still require confirmation. The line drawing is an original decorative mark, not the official logo or a representation of the actual building. The earlier generated logo edit was not used because it did not preserve the original artwork.
 
 Native dialog semantics provide a desktop modal/mobile bottom sheet, with explicit tab wrapping, Escape/close handling, trigger-focus restoration and background scroll lock. Only navigation and booking are client components; page content remains server-rendered. No Motion package, autoplay, parallax, analytics, map embed or artificial booking engine is included.
 
@@ -16,8 +16,9 @@ The owner supplied these property URLs, saved without tracking, session tokens, 
 
 - https://www.hostelworld.com/hostels/p/302311/dalat-family-hostel/
 - https://www.booking.com/hotel/vn/dalat-family-hostel-thanh-pho-da-lat.en-gb.html
+- https://www.agoda.com/dalat-family-hostel-h16373235/hotel/dalat-vn.html
 
-Both pass the application’s HTTPS/hostname/path/credential guard. Live requests to both were denied by the workspace egress proxy (403 tunnel error), so redirect destinations and provider uptime remain unverified. Browser interception tests check outbound navigation wiring, not provider functionality. Do not describe a handoff as a completed reservation. A verified messaging destination has not been supplied; the message action is omitted. Walk-ins are a stated reservation channel, not a guarantee of available beds.
+All three pass the application’s HTTPS/hostname/path/credential guard. Live requests to the first two were denied by the workspace egress proxy (403 tunnel error); the Agoda link was supplied by the owner but its listing and redirect destination have not been live-verified. Browser interception tests check outbound navigation wiring, not provider functionality. Do not describe a handoff as a completed reservation. Instagram, Facebook and TikTok profile links supplied by the owner appear in the footer. A separate messaging destination has not been supplied; the message action is omitted. Walk-ins are a stated reservation channel, not a guarantee of available beds.
 
 ## Content and assets still required
 
@@ -26,15 +27,15 @@ The repository did not contain the referenced approved homepage copy or SEO blue
 Needed before public approval:
 
 1. Approved homepage copy and SEO blueprint, including final page titles, descriptions and canonical domain requirements.
-2. Original approved logo with transparency; authentic licensed photography of people, property, accommodation, dinner and relevant experiences, with permissions and useful captions/alt descriptions.
+2. Approved logo usage; verify the source/licence and property match of supplied accommodation, shared-space and activity images before public use. Confirm permission and approved captions for identifiable people.
 3. Verified room names, inventory, bathroom arrangements, inclusions and policies. No room types, amenities or prices are invented.
 4. Confirmed Family Dinner description, schedule, inclusions, costs and participation information. The section does not promise a scheduled service.
 5. Verified activities/tours, operators, logistics, pricing if shown and safety/eligibility details. There are no invented tour offers.
-6. Approved family history/team biography and authentic attributed reviews with reuse permission. No fake quotes, ratings or counts.
+6. Approved family history/team biography. Section 06 now features short attributed excerpts and the public guest score from the Hostelworld listing, checked 11 October 2026; the full listing is linked as the source. No fake quotes, ratings or counts.
 7. Researched travel guides, address/coordinates, arrival directions, check-in information and approved contact/message link.
 8. Live browser checks of both property links by someone with access to the providers.
 
-Image areas are explicitly labelled geometric development placeholders, not stock or AI photographs. Dimensions reserve their space without image network requests. Replace the placeholder component with optimised Next Image content once authentic assets are supplied; only the main visible image should be prioritised. Decorative shapes are hidden from assistive technology. Fonts are Latin subsets for this English review; add Vietnamese coverage before publishing Vietnamese content.
+Supplied exterior, Da Lat scenery, dinner and activity photographs now replace the corresponding image placeholders. The viewport-height hero uses the Da Lat rooftops image as a full-bleed background with centered copy. All 13 room images are labelled with the room names from their supplied filenames, and five shared-space images and four activity references are displayed in their sections. The room/shared-space images have not been verified as depictions of this property or its facilities, and activity availability or connection to the hostel is unconfirmed; visible development notes identify these limits. The hero image is prioritised; other images use responsive Next Image rendering and lazy loading. Decorative shapes are hidden from assistive technology. Body text uses Be Vietnam Pro with Vietnamese glyph coverage.
 
 ## Validation
 
